@@ -63,7 +63,7 @@ XboxToolkit provides a complete set of tools for reading, extracting, and creati
 Install-Package XboxToolkit
 ```
 
-The package includes native libraries for Windows (x64), Linux (x64), and macOS.
+The package includes native libraries for Windows, Linux, and macOS, each for x64 and arm64.
 
 ## Requirements
 

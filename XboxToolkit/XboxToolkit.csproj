@@ -8,8 +8,8 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
-		<Description>A comprehensive .NET library for working with Xbox 360 and Xbox Original game containers, executables, and metadata. Supports reading ISO, CCI, and GOD containers, extracting XEX/XBE metadata, decrypting/decompressing XEX files, creating ISO files from folders, and fetching marketplace metadata. Includes image processing: XPR/DDS texture conversion, XBE image extraction/replacement, and BIOS logo encoding/decoding. Requires .NET 6.0+. Includes cross-platform native libraries for Windows, Linux, and macOS.</Description>
-		<AssemblyVersion>1.3.3</AssemblyVersion>
+		<Description>A comprehensive .NET library for working with Xbox 360 and Xbox Original game containers, executables, and metadata. Supports reading ISO, CCI, and GOD containers, extracting XEX/XBE metadata, decrypting/decompressing XEX files, creating ISO files from folders, and fetching marketplace metadata. Includes image processing: XPR/DDS texture conversion, XBE image extraction/replacement, and BIOS logo encoding/decoding. Requires .NET 6.0+. Includes cross-platform native libraries for Windows, Linux, and macOS (x64 and arm64).</Description>
+		<AssemblyVersion>1.3.4</AssemblyVersion>
 		<Authors>EqUiNoX</Authors>
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 		<AssemblyName>XboxToolkit</AssemblyName>
@@ -26,7 +26,7 @@
 		<UserSecretsId>1bc5a42d-53e1-4b27-9f03-fec2cceadbd5</UserSecretsId>
 		<AssemblyTitle>XboxToolkit</AssemblyTitle>
 		<RepositoryUrl>https://github.com/Team-Resurgent/XboxToolkit</RepositoryUrl>
-		<FileVersion>1.3.3</FileVersion>
+		<FileVersion>1.3.4</FileVersion>
 		<PackageLicenseExpression> GPL-3.0-only</PackageLicenseExpression>
 	</PropertyGroup>
 
@@ -35,12 +35,24 @@
 			<PackagePath>runtimes/win-x64/native/libXexUnpack.dll</PackagePath>
 			<Pack>true</Pack>
 		</Content>
+		<Content Include="$(SolutionDir)native\win-arm64\libXexUnpack.dll">
+			<PackagePath>runtimes/win-arm64/native/libXexUnpack.dll</PackagePath>
+			<Pack>true</Pack>
+		</Content>
 		<Content Include="$(SolutionDir)native\linux-x64\libXexUnpack.so">
 			<PackagePath>runtimes/linux-x64/native/libXexUnpack.so</PackagePath>
 			<Pack>true</Pack>
 		</Content>
-		<Content Include="$(SolutionDir)native\osx\libXexUnpack.dylib">
-			<PackagePath>runtimes/osx/native/libXexUnpack.dylib</PackagePath>
+		<Content Include="$(SolutionDir)native\linux-arm64\libXexUnpack.so">
+			<PackagePath>runtimes/linux-arm64/native/libXexUnpack.so</PackagePath>
+			<Pack>true</Pack>
+		</Content>
+		<Content Include="$(SolutionDir)native\osx-x64\libXexUnpack.dylib">
+			<PackagePath>runtimes/osx-x64/native/libXexUnpack.dylib</PackagePath>
+			<Pack>true</Pack>
+		</Content>
+		<Content Include="$(SolutionDir)native\osx-arm64\libXexUnpack.dylib">
+			<PackagePath>runtimes/osx-arm64/native/libXexUnpack.dylib</PackagePath>
 			<Pack>true</Pack>
 		</Content>
 	</ItemGroup>
