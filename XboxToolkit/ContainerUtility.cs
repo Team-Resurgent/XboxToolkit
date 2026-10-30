@@ -1269,17 +1269,6 @@ namespace XboxToolkit
                             }
                         }
 
-                        if (right != 0)
-                        {
-                            treeNodes.Add(new TreeNodeInfo
-                            {
-                                DirectoryData = currentTreeNode.DirectoryData,
-                                Offset = right,
-                                Path = currentTreeNode.Path
-                            });
-                            totalNodes++;
-                        }
-
                         if (progress != null)
                         {
                             progress(processedNodes / (float)totalNodes);

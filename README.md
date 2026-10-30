@@ -13,6 +13,7 @@ XboxToolkit provides a complete set of tools for reading, extracting, and creati
 - **CCI Containers**: Read and decode compressed container images (LZ4 compressed)
 - **GOD Containers**: Read Game on Demand (GOD) container formats
 - **Multi-slice Support**: Automatic handling of split container files
+- **STFS Packages**: Read CON, LIVE and PIRS packages, and rebuild them with files replaced (new block layout, hash tables, top hash and header hash; the signature is kept)
 
 ### XEX File Processing
 - Extract metadata from XEX executables
@@ -131,6 +132,16 @@ ContainerUtility.ConvertFolderToISO(
 );
 ```
 
+### Rebuilding an STFS Package
+
+```csharp
+var package = new StfsPackage(File.ReadAllBytes("package"));
+var entry = package.Entries.First(e => e.Path == "default.xex");
+var data = package.ReadFile(entry);
+// ... change data, which may change its size ...
+File.WriteAllBytes("package", package.Rebuild(new Dictionary<StfsFileEntry, byte[]> { [entry] = data }));
+```
+
 ### Fetching Marketplace Metadata
 
 ```csharp
@@ -204,6 +215,7 @@ File.WriteAllBytes("custom_bios_logo.bin", encodedLogo);
 - **ISO**: Xbox Original and Xbox 360 disc images
 - **CCI**: Compressed Container Image (LZ4 compressed)
 - **GOD**: Game on Demand container format
+- **STFS**: CON, LIVE and PIRS packages
 
 ### Executable Formats
 - **XEX**: Xbox 360 executable format
